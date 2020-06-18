@@ -1,0 +1,47 @@
+doctype html
+html
+    head
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title= heading
+        <!-- Compiled and minified CSS -->
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+
+        <!-- Compiled and minified JavaScript -->
+
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        nav(class="nav-wrapper blue darken-1" id="menu")
+            a.heading Learning Tutorials
+            a.sidenav-trigger(href='#' data-target='mobile-demo')
+                i.material-icons menu
+            ul.right.hide-on-med-and-down
+                li
+                    a(href='/tutorials') Home
+                li
+                    a(href = '/auth/login',id='btn1') Login
+                li
+                    a(href='#') Contribute
+                li
+                    a(id ='add1')
+
+        ul#mobile-demo.sidenav
+            li
+                a(href='/tutorials') Home
+            li
+                a(href = '/auth/login',id='btn2') Login
+            li
+                a(href='#') Contribute
+            li
+                a(id='add2')
+        div#posts
+            block allposts
+        block post
+        block login
+        block register
+        block addPost
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+        script(src="/javascripts/materialize.js")
+        script(src="/javascripts/cookie.js")
+
+

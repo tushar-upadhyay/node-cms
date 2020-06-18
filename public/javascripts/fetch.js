@@ -1,0 +1,1 @@
+var inscrybmde = new InscrybMDE({ element: document.getElementById("editor") });

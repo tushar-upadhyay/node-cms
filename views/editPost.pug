@@ -1,0 +1,27 @@
+extends base
+block addPost
+    script(type="text/javascript").
+        var title ="#{title}";
+        var subHeading ="#{subHeading}";
+        var imageUrl = `#{imageUrl}`;
+        var body =`#{body}`;
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/inscrybmde@1.11.6/dist/inscrybmde.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/inscrybmde@1.11.6/dist/inscrybmde.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js")
+    .forms
+        form(class='forms',onsubmit="handle_edit()")
+            .input-field.col.s6
+                input(type='text',id="title",placeholder='Title',name="title")
+            .input-field.col.s6
+                input(type='text',id="subHeading",placeholder='SubHeading',name="subHeading")
+            .input-field.col.s6
+                input(type='text',id="imageUrl",placeholder='Image Url',name="imageUrl")
+            .input-field.col.s6
+                textarea(id="editor",name="body")
+            .btns
+                button.btn.waves-effect.waves-light(type='submit')
+                    | Add!
+                    i.material-icons.right send
+
+    script(src="/javascripts/fetch.js")
+    script(src="/javascripts/editForm.js")

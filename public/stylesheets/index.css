@@ -1,0 +1,40 @@
+#card-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+#card-content{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#card-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#para{
+    display: block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+}
+.date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#btn{
+    margin:5px;
+}
+#img{
+    height: 250px;
+    width: 250px;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+ }

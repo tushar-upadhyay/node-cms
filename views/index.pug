@@ -1,0 +1,18 @@
+extends base
+block allposts
+    link(rel='stylesheet',href='/stylesheets/index.css')
+    if loggedIn==true
+        script(src='/javascripts/deletePost.js')
+    for post in posts
+      .row
+          .card#card
+            .card-image#card-img
+              img(src=post.imageUrl,id="img")
+              span.card-title#card-title= post.title
+            .card-content#card-content
+              p#para= post.subHeading
+            .card-action
+              a(class="waves-effect waves-light btn-small" id="btn" href="tutorials/"+post.title) View Post
+              if loggedIn===true
+                  a(class="waves-effect waves-light btn-small delete" onclick="deletePost()" id="btn" data-link= "/tutorials/deletePost/"+post.title) Delete
+

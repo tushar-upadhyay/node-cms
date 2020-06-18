@@ -1,0 +1,35 @@
+extends base
+block post
+    .main
+        .post
+            .titles
+                h4= subHeading
+                .details
+                    .header-items
+                        i.material-icons person
+                        p#author By #{author}
+                    .header-items
+                        i.material-icons date_range
+                        p #{date}
+                    if loggedIn===true
+                        .header-items
+                            a(class="header-items",href=`/tutorials/editPost/${title}` style="color:black;")
+                                i.material-icons edit
+                                p edit
+
+            div  !{body}
+            hr(width="100%")
+            .comments
+                h6 Comments: #{comments.length}
+                for comment in comments
+                    p= comment.comment
+                form(action='/tutorials/addComment',method='POST')
+                    .addComment
+                        input(type="hidden" name="title" value=title)
+                        i.material-icons.prefix.iconstyle comment
+                            input(style="padding-left:7px")#icon_prefix.validate(name="comment" type='text',placeholder="Add a Comment")
+                        a.btn-floating.btn-small.waves-effect.waves-light.red
+                            i.material-icons add
+
+        .right-section
+            h5 Related Posts
