@@ -11,35 +11,46 @@ html
 
         link(rel='stylesheet', href='/stylesheets/style.css')
     body
-        nav(class="nav-wrapper blue darken-1" id="menu")
+        nav(class="nav-wrapper menu-color" id="menu")
             a.heading Learning Tutorials
             a.sidenav-trigger(href='#' data-target='mobile-demo')
                 i.material-icons menu
             ul.right.hide-on-med-and-down
                 li
                     a(href='/tutorials') Home
-                li
-                    a(href = '/auth/login',id='btn1') Login
+                if loggedIn === true
+                    li
+                        a(href = '/auth/logout',id='btn2') Logout
+                else
+                    li
+                        a(href = '/auth/login',id='btn2') Login
                 li
                     a(href='#') Contribute
-                li
-                    a(id ='add1')
-
+                if loggedIn === true
+                    li
+                        a(href = '/tutorials/addPost',id='btn2') Add Post
         ul#mobile-demo.sidenav
             li
                 a(href='/tutorials') Home
-            li
-                a(href = '/auth/login',id='btn2') Login
+            if loggedIn===true
+                li
+                    a(href = '/auth/logout',id='btn2') Logout
+            else
+                li
+                    a(href = '/auth/login',id='btn2') Login
             li
                 a(href='#') Contribute
-            li
-                a(id='add2')
+            if loggedIn === true
+                li
+                    a(href = '/tutorials/addPost',id='btn2') Add Post
         div#posts
             block allposts
         block post
+        block verifyOtp
         block login
         block register
         block addPost
+        block video
         script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
         script(src="/javascripts/materialize.js")
         script(src="/javascripts/cookie.js")

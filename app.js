@@ -8,6 +8,7 @@ const logger = require('morgan');
 const bodyParser  = require('body-parser');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/tutorials');
+const videoRouter = require('./routes/video');
 const auth = require('./routes/auth');
 const MongoStore = require('connect-mongo')(session);
 const app = express();
@@ -34,10 +35,12 @@ app.use(session({
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', indexRouter);
+
 app.use(bodyParser.json());
 app.use('/tutorials', usersRouter);
 app.use('/auth',auth);
+app.use('/video',videoRouter);
+app.use('/', indexRouter);
 app.get('*',(req,res)=>{
   res.redirect('/tutorials')
 })

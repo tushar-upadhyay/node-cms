@@ -1,0 +1,8 @@
+.verifyOtp{
+    display: flex;
+    justify-content: center;
+}
+.btns{
+    display: flex;
+    justify-content: space-evenly;
+}
